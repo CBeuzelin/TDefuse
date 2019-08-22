@@ -1,0 +1,72 @@
+<perfect-scrollbar style="max-width: 100%; max-height: 100vh;">
+  <div id="wiresHorizontalContainer">
+    <div id="wireDisplayContainer">
+      <div class="wireConnector"></div>
+      <div class="wireConnector"></div>
+
+      <div id="wiresContainer">
+        <div class="colorRow {{wiresColor[wire]}}" *ngFor="let wire of wires">
+        </div>
+      </div>
+    </div>
+
+    <div id="configurationAndResult">
+      <div>
+        <h3>Nombre de fils:</h3>
+        <div id="radioContainer">
+          <p-radioButton
+            name="nbWires"
+            (onClick)=onChangeNbWires()
+            [(ngModel)]="nbWires"
+            value="3"
+            label="3"
+          ></p-radioButton>
+
+          <p-radioButton
+            name="nbWires"
+            (onClick)=onChangeNbWires()
+            [(ngModel)]="nbWires"
+            value="4"
+            label="4"
+          ></p-radioButton>
+
+          <p-radioButton
+            name="nbWires"
+            (onClick)=onChangeNbWires()
+            [(ngModel)]="nbWires"
+            value="5"
+            label="5"
+          ></p-radioButton>
+
+          <p-radioButton
+            name="nbWires"
+            (onClick)=onChangeNbWires()
+            [(ngModel)]="nbWires"
+            value="6"
+            label="6"
+          ></p-radioButton>
+        </div>
+      </div>
+      <div>
+        <h3>Couleurs des fils:</h3>
+
+        <div class="colorRow" *ngFor="let wire of wires">
+          Fil n°{{wire+1}}:
+
+          <div
+            class="colorSelection {{color}}"
+            [ngClass]="{'selected': wiresColor[wire] === color}"
+            *ngFor="let color of colorSet"
+            (click)="onChangeColor(wire, color)"
+          ></div>
+        </div>
+      </div>
+
+      <div>
+        <h3>Fil à couper:</h3>
+        <span id="result" *ngIf=wireToCut>Fil n°{{wireToCut}}</span>
+      </div>
+    </div>
+
+  </div>
+</perfect-scrollbar>

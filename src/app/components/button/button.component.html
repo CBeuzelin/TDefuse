@@ -1,0 +1,36 @@
+<perfect-scrollbar style="max-width: 100%; max-height: 100vh;">
+  <div id="buttonModuleContainer">
+    <div class="buttonContainer">
+      <div *ngFor="let buttonColor of BUTTON_COLORS">
+        <div *ngFor="let buttonText of BUTTON_TEXTS">
+          <div class="button {{buttonColor}}" (click)="onButtonClick(buttonColor, buttonText)">
+            <span>{{buttonText.toUpperCase()}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="instructions" *ngIf="isDefined(pressAndRelease)">
+      <h3 *ngIf="pressAndRelease; else holdButton">Appuyer et relâcher</h3>
+      <ng-template #holdButton>
+        <h3>Appuyer et maintenir</h3>
+
+        <div id="desc">
+          <div>
+            <span class="blue">Bande Bleue</span>: Relâcher quand il y a un <span class="bold">4</span> sur le compte à
+            rebours.
+          </div>
+          <div>
+            <span class="yellow">Bande Jaune</span>: Relâcher quand il y a un <span class="bold">5</span> sur le compte à
+            rebours.
+          </div>
+          <div>
+            Bande d'une autre couleur: Relâcher quand il y a un <span class="bold">1</span> sur le
+            compte à
+            rebours.
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</perfect-scrollbar>

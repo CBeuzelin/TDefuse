@@ -1,0 +1,73 @@
+<div id="wireVerticalContainer">
+  <div class="wireRow" *ngFor="let wire of wires">
+    <div class="color {{wire.color}}"></div>
+    <div *ngIf="isDefined(wire.cut); else wireCutUndefined">
+      <img *ngIf=wire.cut src="../../../assets/images/wires-vertical/cut.png" alt="Couper">
+      <img *ngIf=!wire.cut src="../../../assets/images/wires-vertical/dont-cut.png" alt="Ne pas couper">
+    </div>
+
+    <ng-template #wireCutUndefined>
+      <div class="indicatorColumn">
+        <div class="indicatorRow ledOn">
+          <img src="../../../assets/images/wires-vertical/led-on.png" alt="Led allumée">
+          <div *ngIf=isDefined(wire.ledOn)>
+            <div *ngIf="isDefined(wire.ledOn.cut); else ledOnCutUndefined">
+              <img *ngIf=wire.ledOn.cut src="../../../assets/images/wires-vertical/cut.png" alt="Couper">
+              <img *ngIf=!wire.ledOn.cut src="../../../assets/images/wires-vertical/dont-cut.png" alt="Ne pas couper">
+            </div>
+
+            <ng-template #ledOnCutUndefined>
+              <div class="indicatorColumn">
+                <div class="indicatorRow starOn">
+                  <div><img src="../../../assets/images/wires-vertical/star-on.png" alt="Étoile présente"></div>
+                  <div *ngIf=isDefined(wire.ledOn.starOn)>
+                    <img *ngIf=wire.ledOn.starOn src="../../../assets/images/wires-vertical/cut.png" alt="Couper">
+                    <img *ngIf=!wire.ledOn.starOn src="../../../assets/images/wires-vertical/dont-cut.png" alt="Ne pas couper">
+                  </div>
+                </div>
+
+                <div class="indicatorRow starOff">
+                  <div><img src="../../../assets/images/wires-vertical/star-off.png" alt="Étoile absente"></div>
+                  <div *ngIf=isDefined(wire.ledOn.starOff)>
+                    <img *ngIf=wire.ledOn.starOff src="../../../assets/images/wires-vertical/cut.png" alt="Couper">
+                    <img *ngIf=!wire.ledOn.starOff src="../../../assets/images/wires-vertical/dont-cut.png" alt="Ne pas couper">
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+
+        <div class="indicatorRow">
+          <img src="../../../assets/images/wires-vertical/led-off.png" alt="Led éteinte">
+          <div *ngIf=isDefined(wire.ledOff)>
+            <div *ngIf="isDefined(wire.ledOff.cut); else ledOffCutUndefined">
+              <img *ngIf=wire.ledOff.cut src="../../../assets/images/wires-vertical/cut.png" alt="Couper">
+              <img *ngIf=!wire.ledOff.cut src="../../../assets/images/wires-vertical/dont-cut.png" alt="Ne pas couper">
+            </div>
+
+            <ng-template #ledOffCutUndefined>
+              <div class="indicatorColumn">
+                <div class="indicatorRow starOn">
+                  <div><img src="../../../assets/images/wires-vertical/star-on.png" alt="Étoile présente"></div>
+                  <div *ngIf=isDefined(wire.ledOff.starOn)>
+                    <img *ngIf=wire.ledOff.starOn src="../../../assets/images/wires-vertical/cut.png" alt="Couper">
+                    <img *ngIf=!wire.ledOff.starOn src="../../../assets/images/wires-vertical/dont-cut.png" alt="Ne pas couper">
+                  </div>
+                </div>
+
+                <div class="indicatorRow starOff">
+                  <div><img src="../../../assets/images/wires-vertical/star-off.png" alt="Étoile absente"></div>
+                  <div *ngIf=isDefined(wire.ledOff.starOff)>
+                    <img *ngIf=wire.ledOff.starOff src="../../../assets/images/wires-vertical/cut.png" alt="Couper">
+                    <img *ngIf=!wire.ledOff.starOff src="../../../assets/images/wires-vertical/dont-cut.png" alt="Ne pas couper">
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>

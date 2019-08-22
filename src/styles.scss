@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/primeng/resources/themes/nova-light/theme.css";
+
+
+body {
+  margin: 0;
+  padding : 0;
+  background-color: #f2f2f9;
+
+  font-family: 'Cabin',Helvetica,Arial,Lucida,sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+}

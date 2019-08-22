@@ -1,0 +1,39 @@
+#symbolsModuleContainer {
+  padding: 16% 20% 0;
+
+  #symbolSelection{
+    display: grid;
+    grid-gap: 8px;
+    grid-template-columns: repeat(auto-fit, 72px);
+
+    .symbols {
+      cursor: pointer;
+      border: 1px solid #9c9c9c;
+      border-radius: 8px;
+      max-height: 72px;
+
+      &.selected {
+        background-color: #c4c4c4;
+      }
+    }
+  }
+
+  #result {
+    margin-top: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & > div {
+      display: flex;
+    }
+
+    button {
+      margin: 21px 0;
+    }
+  }
+
+  img {
+    height: 72px;
+  }
+}

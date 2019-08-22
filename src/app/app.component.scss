@@ -1,0 +1,15 @@
+#appContainer {
+  display: flex;
+  height: 100vh;
+  color: #fbf8f8;
+
+  app-sidebar {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  #mainContainer {
+    flex: 4;
+    color: #2f3135;
+  }
+}

@@ -1,0 +1,26 @@
+#mainContainer {
+  #modulesContainer {
+    margin: 32px 64px;
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(auto-fit, 200px);
+
+    .modules {
+      background-color: white;
+      padding: 0 4px;
+      border-radius: 4px;
+
+      span {
+        display: block;
+        text-align: center;
+        margin: 4px 0;
+        font-weight: bold;
+      }
+
+      img {
+        cursor: pointer;
+        outline: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,102 @@
+$shadowColor: #292929;
+$buttonSize: 120px;
+$buttonMargin: 16px;
+
+#buttonModuleContainer{
+  padding: 32px 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .buttonContainer {
+    & > div {
+      display: flex;
+    }
+
+    .button {
+      width: $buttonSize;
+      height: $buttonSize;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 8px $buttonMargin;
+      border-radius: 60px;
+      box-shadow: 0 0 20px 5px rgba(0,0,0,0.22);
+      cursor: pointer;
+
+      span {
+        color: white;
+        font-weight: bold;
+        text-shadow:
+          0.05em 0 $shadowColor,
+          0 0.05em $shadowColor,
+          -0.05em 0 $shadowColor,
+          0 -0.05em $shadowColor,
+          -0.05em -0.05em $shadowColor,
+          -0.05em 0.05em $shadowColor,
+          0.05em -0.05em $shadowColor,
+          0.05em 0.05em $shadowColor;
+      }
+
+      &.white {
+        background-color: #e9e9e9;
+
+        &:hover {
+          background-color: #E1E1E1;
+        }
+      }
+
+      &.red {
+        background-color: #ca0006;
+
+        &:hover {
+          background-color: #B30006;
+        }
+      }
+
+      &.blue {
+        background-color: #274eff;
+
+        &:hover {
+          background-color: #2342DA;
+        }
+      }
+
+      &.yellow {
+        background-color: #ffba13;
+
+        &:hover {
+          background-color: #D59C14;
+        }
+      }
+    }
+  }
+
+  #instructions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 32px;
+    width: 100%;
+
+    h3 {
+      margin-left: 0;
+    }
+
+    #desc {
+      width: 3*($buttonSize + 2*$buttonMargin);
+
+      .blue {
+        color: #274eff;
+      }
+
+      .yellow {
+        color: #ffba13;
+      }
+
+      .bold {
+        font-weight: bold;
+      }
+    }
+  }
+}

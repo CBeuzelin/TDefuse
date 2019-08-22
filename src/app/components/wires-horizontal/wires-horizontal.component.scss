@@ -1,0 +1,122 @@
+$displaySize: 500px;
+$displayPadding: 16px;
+
+#wiresHorizontalContainer {
+  display: flex;
+  justify-content: space-around;
+  padding: 15% 32px 0;
+
+  #wireDisplayContainer {
+    height: $displaySize;
+    width: $displaySize;
+    margin-right: 16px;
+    padding: $displayPadding;
+
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #9c9c9c;
+    border-radius: 8px;
+
+    .wireConnector {
+      width: 60px;
+      height: 100%;
+      background-color: #34384c;
+
+      &:first-child {
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+      }
+
+      &:last-child {
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+      }
+    }
+
+    #wiresContainer {
+      position: absolute;
+      height: $displaySize - 2*$displayPadding;
+      width: $displaySize - 2*$displayPadding;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .colorRow {
+        height: 16px;
+        margin: 0 16px;
+        border: 1px solid #9c9c9c;
+        border-radius: 4px;
+
+        &:first-child {
+          margin-top: 24px;
+        }
+
+        &:last-child {
+          margin-bottom: 24px;
+        }
+      }
+    }
+  }
+
+  #configurationAndResult {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 16px;
+
+    h3:first-child {
+      margin-top: 0;
+    }
+
+    p-radioButton {
+      &:not(:last-child) {
+        margin-right: 24px;
+      }
+    }
+
+    .colorRow {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+
+      .colorSelection {
+        width: 48px;
+        height: 24px;
+        border: 1px solid #9c9c9c;
+        border-radius: 4px;
+        margin-left: 16px;
+        cursor: pointer;
+
+        &.selected {
+          border: 2px solid #02cc00;
+        }
+      }
+    }
+
+    #radioContainer, .colorRow, #result {
+      margin-left: 64px;
+    }
+  }
+
+  .colorSelection, .colorRow {
+    &.white {
+      background-color: white;
+    }
+
+    &.black {
+      background-color: black;
+    }
+
+    &.red {
+      background-color: red;
+    }
+
+    &.blue {
+      background-color: blue;
+    }
+
+    &.yellow {
+      background-color: yellow;
+    }
+  }
+}

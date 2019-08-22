@@ -1,0 +1,14 @@
+<div id="mainContainer">
+  <perfect-scrollbar style="max-width: 100%; max-height: 100vh;">
+    <div id="modulesContainer">
+      <div class="modules" *ngFor="let module of moduleList">
+        <span>{{module.name}}</span>
+        <img
+          src="../../../assets/images/{{module.route}}.svg"
+          alt="{{module.name}}"
+          routerLink="/{{module.route}}"
+        >
+      </div>
+    </div>
+  </perfect-scrollbar>
+</div>

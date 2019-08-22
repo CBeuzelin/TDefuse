@@ -1,0 +1,59 @@
+#sidebarContainer {
+  height: 100%;
+  background-image: radial-gradient(circle at center,#2f3135 22%,#222326 54%) !important;
+  padding: 16px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  #title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+  }
+
+  #categories {
+    margin: 0 15%;
+
+    h5 {
+      margin: 4px 0;
+    }
+
+    .subcategory {
+      margin-left: 8px;
+      padding: 16px 0 32px;
+      border-left: 1px solid #f2f2f940;
+
+      p-toggleButton {
+        display: flex;
+        justify-content: center;
+
+        &:not(:last-child){
+          margin-bottom: 16px;
+        }
+      }
+
+      p-toggleButton::ng-deep {
+        div {
+          min-width: 160px!important;
+        }
+      }
+
+      #radioContainer {
+        display: flex;
+        flex-direction: column;
+        margin-left: 20%;
+
+        p-radioButton {
+          margin: 4px 0;
+        }
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+}

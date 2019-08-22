@@ -1,5 +1,5 @@
 {
-  "name": "tdefuse",
+  "name": "chase-hunting-front",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -11,7 +11,8 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~8.1.1",
+    "@angular/animations": "^8.1.3",
+    "@angular/cdk": "^8.1.2",
     "@angular/common": "~8.1.1",
     "@angular/compiler": "~8.1.1",
     "@angular/core": "~8.1.1",
@@ -19,7 +20,14 @@
     "@angular/platform-browser": "~8.1.1",
     "@angular/platform-browser-dynamic": "~8.1.1",
     "@angular/router": "~8.1.1",
-    "rxjs": "~6.4.0",
+    "angular-particle": "^1.0.4",
+    "chart.js": "^2.8.0",
+    "font-awesome": "^4.7.0",
+    "ngx-perfect-scrollbar": "^8.0.0",
+    "primeicons": "^2.0.0",
+    "primeng": "^8.0.2",
+    "quill": "^1.3.6",
+    "rxjs": "^6.4.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
   },

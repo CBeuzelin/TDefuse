@@ -1,0 +1,33 @@
+<perfect-scrollbar style="max-width: 100%; max-height: 100vh;">
+  <div id="symbolsModuleContainer">
+    <div id="symbolSelection">
+      <div
+        class="symbols"
+        [ngClass]="{'selected': selectedSymbols.includes(symbol+1)}"
+        *ngFor="let symbol of symbols"
+      >
+        <img
+          src="../../../assets/images/symbols/{{symbol+1}}.png"
+          alt="Symbole n°{{symbol+1}}"
+          (click)=onClickSymbol(symbol+1)
+        >
+      </div>
+    </div>
+
+    <div id="result">
+      <div>
+        <span *ngIf="!orderFound && selectedSymbols.length === 4">Selection incorrecte</span>
+        <div *ngFor="let symbol of orderedSelectedSymbols">
+          <img src="../../../assets/images/symbols/{{symbol}}.png" alt="Symbole n°{{symbol}}">
+        </div>
+      </div>
+      <button
+        pButton
+        type="button"
+        label="Réinitialiser"
+        class="ui-button-raised ui-button-warning"
+        (click)=resetList()
+      ></button>
+    </div>
+  </div>
+</perfect-scrollbar>

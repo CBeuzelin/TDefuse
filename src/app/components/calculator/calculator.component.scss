@@ -1,0 +1,95 @@
+#calculatorModuleContainer {
+  padding: 32px 15%;
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    margin: 0 8px 16px;
+  }
+
+  #firstStepContainer, #secondStepContainer {
+    margin-bottom: 32px;
+  }
+
+  #firstStepContainer {
+    & > div {
+      display: flex;
+      flex-wrap: wrap;
+
+      .wordTable{
+        margin: 8px 4px;
+
+        table {
+          font-weight: bold;
+          border-collapse: collapse;
+
+          tr {
+            td {
+              height: 24px;
+              width: 56px;
+              text-align: center;
+              color: #2f3135;
+              border: #2f3135 1px solid;
+              padding: 0;
+
+              i {
+                font-size: 20px;
+                margin-top: 1px;
+              }
+            }
+
+            &.firstRow {
+              background-color: #2f3135;
+
+              td {
+                height: 32px;
+                color: #f2f2f9;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #secondStepContainer {
+    #buttonList {
+      display: flex;
+      flex-wrap: wrap;
+
+      & > div {
+        padding: 4px 8px;
+        margin: 8px;
+        min-width: 56px;
+        background-color: #2f3135;
+        border-radius: 4px;
+        text-align: center;
+        color: #f2f2f9;
+        font-weight: bold;
+        cursor: pointer;
+
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none;
+
+        &:hover {
+          background-color: #424549;
+        }
+      }
+    }
+  }
+
+
+  #resultContainer {
+    #wordList {
+      margin: 0 8px;
+
+      span {
+        margin-right: 4px;
+      }
+    }
+  }
+}

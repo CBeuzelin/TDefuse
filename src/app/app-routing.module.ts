@@ -11,6 +11,7 @@ import { WiresCrossedComponent } from './components/wires-crossed/wires-crossed.
 import { PasswordComponent } from './components/password/password.component';
 import { SimonComponent } from './components/simon/simon.component';
 import { MazeComponent } from './components/maze/maze.component';
+import { MorseComponent } from './components/morse/morse.component';
 
 const routes: Routes = [
   {path: '', component: MenuComponent},
@@ -20,7 +21,7 @@ const routes: Routes = [
   {path: 'simon', component: SimonComponent},
   {path: 'calculator', component: CalculatorComponent},
   {path: 'memory', component: MemoryComponent},
-  {path: 'morse', component: WiresVerticalComponent},
+  {path: 'morse', component: MorseComponent},
   {path: 'wires-vertical', component: WiresVerticalComponent},
   {path: 'wires-crossed', component: WiresCrossedComponent},
   {path: 'maze', component: MazeComponent},

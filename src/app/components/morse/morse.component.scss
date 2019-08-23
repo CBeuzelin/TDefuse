@@ -1,0 +1,93 @@
+#morseModule {
+  padding: 15%;
+
+  .button {
+    background-color: #2f3135;
+    color: #f2f2f9;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    width: 128px;
+    min-height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: #424549;
+    }
+
+    &:not(:last-child){
+      margin-right: 16px;
+    }
+
+    &.revert {
+      background-color: #f2f2f9;
+      color: #424549;
+      border: 2px solid #424549;
+
+      &:hover {
+        background-color: #dae4ed;
+      }
+    }
+
+    &#saveLetter {
+      width: auto;
+      padding: 8px 16px;
+    }
+  }
+
+  .pi-circle-on {
+    font-size: 14px;
+  }
+
+  .pi-minus {
+    font-size: 30px;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  #buttonsContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  #currentLetterContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 64px;
+
+    #currentLetter {
+      display: flex;
+      margin-bottom: 32px;
+
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+        width: 30px;
+      }
+    }
+
+    #letterResult {
+      #saveLetter {
+        margin-top: 16px;
+      }
+    }
+  }
+
+  #finalResult {
+    margin-top: 64px;
+    text-align: center;
+
+    #finalFrequency {
+      margin-top: 32px;
+    }
+  }
+}

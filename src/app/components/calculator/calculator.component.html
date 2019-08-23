@@ -1,1 +1,38 @@
-<p>calculator works!</p>
+<perfect-scrollbar style="max-width: 100%; max-height: 100vh;">
+  <div id="calculatorModuleContainer">
+    <div id="firstStepContainer">
+      <h3>Première étape:</h3>
+      <div>
+        <div class="wordTable" *ngFor="let word of FIRST_STEP">
+          <table>
+            <tr class="firstRow"><td colspan=2>{{WORD_LIST[word.word].toUpperCase()}}</td></tr>
+
+            <tr *ngFor="let row of firstStepRow">
+              <td *ngFor="let col of firstStepCol">
+                <i *ngIf="word.position[0] === col && word.position[1] === row" class="pi pi-eye"></i>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="secondStepContainer">
+      <h3>Seconde étape:</h3>
+      <div id="buttonList">
+        <div *ngFor="let word of SECOND_STEP; let index = index" (click)=onClickButton(index)>
+          {{WORD_LIST[word.mainWord].toUpperCase()}}
+        </div>
+      </div>
+    </div>
+
+    <div id="resultContainer">
+      <h3>Résultat:</h3>
+      <div id="wordList">
+        <span *ngFor="let word of listToDisplay; let index = index">
+          {{WORD_LIST[word].toUpperCase()}}<span *ngIf="listToDisplay.length-1 !== index">,</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</perfect-scrollbar>

@@ -1,1 +1,61 @@
-<p>morse works!</p>
+<div id="morseModule">
+  <div id="buttonsContainer">
+    <div id="previousLetter" class="button revert" (click)=onPreviousLetter()>
+      <i class="pi pi-angle-double-left"></i>
+    </div>
+
+    <div id="undoLetter" class="button revert" (click)=onRevertChar()>
+      <i class="pi pi-angle-left"></i>
+    </div>
+
+    <div id="dot" class="button" (click)="onAddChar(false)">
+      <i class="pi pi-circle-on"></i>
+    </div>
+
+    <div id="dash" class="button" (click)="onAddChar(true)">
+      <i class="pi pi-minus"></i>
+    </div>
+
+    <div id="clearLetter" class="button revert" (click)=onClearLetter()>
+      <i class="pi pi-times"></i>
+    </div>
+  </div>
+
+  <div id="currentLetterContainer">
+    <div id="currentLetter">
+      <span *ngFor="let char of currentMorseLetter">
+        <i *ngIf=!char class="pi pi-circle-on"></i>
+        <i *ngIf=char class="pi pi-minus"></i>
+      </span>
+
+    </div>
+    <div id="letterResult">
+      <div [ngSwitch]="currentLetter">
+        <span *ngSwitchCase="''"></span>
+        <span *ngSwitchCase="'notFound'">Aucune lettre ne correspond à ce code.</span>
+        <span *ngSwitchDefault>Lettre correspondante:
+          <span class="bold">{{currentLetter.toUpperCase()}}</span>
+        </span>
+      </div>
+
+      <div *ngIf="currentLetter !== 'notFound' && currentLetter !== ''">
+        <div id="saveLetter" class="button" (click)=onSaveLetter()>
+          Valider la lettre
+          <i class="pi pi-check"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf=word.length id="finalResult">
+    <div id="finalWord">
+      Mot correspondant:
+      <span class="bold">{{word.toUpperCase()}}...</span>
+    </div>
+    <div [ngSwitch]="filteredFrequencies.length" id="finalFrequency">
+      <span *ngSwitchCase="0">Aucune fréquence possible</span>
+      <span *ngSwitchCase="1">Fréquence correspondante: <span class="bold">{{filteredFrequencies[0].frequency}}</span></span>
+      <span *ngSwitchDefault>Trop de fréquences possibles, affinez la recherche</span>
+    </div>
+  </div>
+</div>

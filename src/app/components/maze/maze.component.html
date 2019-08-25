@@ -1,1 +1,52 @@
-<p>maze works!</p>
+<div id="mazeModuleContainer">
+  <div id="mazeControlsContainer">
+    <div class="mazeContainer">
+      <div id="mazePath" *ngIf="path.length">
+        <div class="column" *ngFor="let column of pathGrid; let i = index" [ngClass]="{'borderColumn': i%2 === 1}">
+          <div class="row" *ngFor="let row of pathGrid; let j = index" [ngClass]="{'borderRow': j%2 === 1}">
+            <div class="direction" [ngClass]="{
+              'upward': pathGrid[j][i] === 'Haut',
+              'downward': pathGrid[j][i] === 'Bas',
+              'leftward': pathGrid[j][i] === 'Gauche',
+              'rightward': pathGrid[j][i] === 'Droite'
+            }">
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="mainMaze">
+        <div class="column" *ngFor="let column of MAZES[currentMaze].grid; let i = index"
+          [ngClass]="{'borderColumn': i%2 === 1}">
+          <div class="row" *ngFor="let row of MAZES[currentMaze].grid; let j = index"
+            [ngClass]="{'borderRow': j%2 === 1, 'closedBorder': (i%2 === 1 || j%2 === 1) && MAZES[currentMaze].grid[j][i] === 1}">
+            <div [ngClass]="{'marker': isMarker([i, j])}" (click)="toggleMarker([i, j])">
+              <div [ngClass]="{
+                    'startPosition': arraysEqual(enteredPoints.start, [i, j]), 
+                    'endPosition': arraysEqual(enteredPoints.end, [i, j])
+                  }" (click)="cyclePoint([i, j])">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="button" (click)=validateMaze()>
+      <span *ngIf=!mazeValidated>
+        Valider les marqueurs&nbsp;
+        <i class="pi pi-check"></i>
+      </span>
+      <span *ngIf=mazeValidated>
+        Réinitialiser les marqueurs&nbsp;
+        <i class="pi pi-times"></i>
+      </span>
+    </div>
+    <div id="errorMessage">
+      <span *ngIf="mazeValidated === false">Impossible de trouver un labyrinthe correspondant à ces marqueurs</span>
+    </div>
+  </div>
+  <div id="directionContainer">
+    <h3>Directions à suivre:</h3>
+    <span *ngFor="let direction of path; let i = index">{{leadingZero(i + 1)}}. {{direction}}</span>
+  </div>
+</div>

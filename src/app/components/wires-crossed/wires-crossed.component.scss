@@ -1,0 +1,102 @@
+#wireCrossedModuleContainer {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  #colorContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 64px;
+
+    .colorColumn {
+      &:not(:last-child){
+        margin-right: 32px;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 16px;
+        min-height: 30px;
+
+        h3 {
+          margin: 0;
+          text-align: center;
+        }
+
+        .button {
+          border: 0;
+          margin-top: 4px;
+          cursor: pointer;
+        }
+      }
+
+      .buttonContainer {
+        display: flex;
+
+        .button {
+          border-radius: 4px;
+          text-align: center;
+          font-weight: bold;
+          cursor: pointer;
+          padding: 4px 16px;
+          background-color: #f2f2f9;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:not(:last-child){
+            margin-right: 8px;
+          }
+
+          &:hover {
+            background-color: #dae4ed;
+          }
+        }
+      }
+
+      &.red {
+        color: #ca0006;
+
+        .button {
+          border: 2px solid #ca0006;
+        }
+      }
+
+      &.blue {
+        color: #274eff;
+
+        .button {
+          border: 2px solid #274eff;
+        }
+      }
+
+      &.black {
+        color: #424549;
+
+        .button {
+          border: 2px solid #424549;
+        }
+      }
+
+      .cutWire {
+        margin-top: 16px;
+        min-height: 32px;
+        text-align: center;
+        font-weight: bold;
+
+        display: flex;
+        justify-content: space-around;
+
+        img {
+          width: 24px;
+        }
+      }
+    }
+  }
+}

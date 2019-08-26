@@ -45,7 +45,6 @@ $cellSize: 80px;
       #mainMaze {
         .column {
           .row {
-            // z-index: 10;
             cursor: pointer;
     
             background: url('../../../assets/images/maze/point.png') center no-repeat;
@@ -89,13 +88,14 @@ $cellSize: 80px;
           &.upward, &.downward, &.leftward,&.rightward {
             & > div {
               position: absolute;
-              background-color: #3b42a4;
+              background-color: #101dce;
+              border-radius: 10px;
             }
           }
 
           &.upward, &.downward {
             & > div {
-              height: 83px;
+              height: 93px;
               width: 10px;
               left: 35px;
             }
@@ -104,32 +104,32 @@ $cellSize: 80px;
           &.leftward, &.rightward {
             & > div {
               height: 10px;
-              width: 83px;
+              width: 93px;
               top: 35px;
             }
           }
 
           &.upward {
             div {
-              bottom: 40px;
+              bottom: 35px;
             }
           }
   
           &.downward {
             div {
-              top: 40px;
+              top: 35px;
             }
           }
 
           &.leftward {
             div {
-              right: 40px;
+              right: 35px;
             }
           }
 
           &.rightward {
             div {
-              left: 40px;
+              left: 35px;
             }
           }
         }

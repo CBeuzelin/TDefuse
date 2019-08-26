@@ -1,1 +1,56 @@
-<p>memory works!</p>
+<div id="memoryModuleContainer">
+  <div id="memoryContainer">
+    <div id="digitsContainer">
+      <div id="display">
+        <input
+          maxlength="1"
+          type="number"
+          [(ngModel)]="currentStep.display"
+          [ngClass]="{'error': !isValueCorrect(currentStep.display)}"
+          (input)="onInputChange()"
+        >
+      </div>
+      <div id="labelContainer">
+        <div class="label" *ngFor="let position of nbPositions">
+          <input
+            maxlength="1"
+            type="number"
+            [(ngModel)]="currentStep.labels[position]"
+            [ngClass]="{
+            'error': !isValueCorrect(currentStep.labels[position]) ||
+            isDuplicate(currentStep.labels[position]),
+            'toClick': positionToClick === position
+          }"
+            (input)="onInputChange()"
+          >
+        </div>
+      </div>
+    </div>
+
+    <div id="stepContainer">
+      <div
+        *ngFor="let step of nbSteps"
+        class="stepLed"
+        [ngClass]="{'stepPassed': step < currentStepNumber}"
+      >
+      </div>
+    </div>
+  </div>
+
+  <div id="buttonContainer">
+    <div
+      class="button reset revert"
+      [ngClass]="{'disabled': currentStepNumber === 0}"
+      (click)="firstStep()"
+    >
+      <i class="pi pi-angle-left"></i><span>Réinitialisation</span>
+    </div>
+    <div
+      class="button next"
+      [ngClass]="{'disabled': positionToClick === null || currentStepNumber === 5}"
+      (click)="nextStep()"
+    >
+      <span>Étape suivante</span><i class="pi pi-angle-right"></i>
+    </div>
+  </div>
+</div>

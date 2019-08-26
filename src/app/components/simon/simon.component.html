@@ -1,1 +1,25 @@
-<p>simon works!</p>
+<div id="simonModuleContainer">
+  <table>
+    <tr>
+      <th class="emptyCell"></th>
+      <th class="red">Rouge</th>
+      <th class="blue">Bleu</th>
+      <th class="green">Vert</th>
+      <th class="yellow">Jaune</th>
+    </tr>
+    <tr>
+      <td class="nbError">Aucune Faute</td>
+      <td class="{{color}}" *ngFor="let color of SIMON[activeTable][0]">{{getColorName(color)}}</td>
+    </tr>
+
+    <tr>
+      <td class="nbError">Une Faute</td>
+      <td class="{{color}}" *ngFor="let color of SIMON[activeTable][1]">{{getColorName(color)}}</td>
+    </tr>
+
+    <tr>
+      <td class="nbError">Deux Fautes</td>
+      <td class="{{color}}" *ngFor="let color of SIMON[activeTable][2]">{{getColorName(color)}}</td>
+    </tr>
+  </table>
+</div>

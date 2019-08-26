@@ -1,1 +1,38 @@
-<p>wires-crossed works!</p>
+<div id="wireCrossedModuleContainer">
+  <div id="colorContainer">
+    <div class="colorColumn {{wire.color}}" *ngFor="let wire of wires; let colorId = index">
+      <div class="header">
+        <h3>{{getColorName(wire.color)}} <span *ngIf="wire.step > -1">n° {{wire.step + 1}}</span></h3>
+        <div class="button" *ngIf="wire.step >= 0">
+          <i class="pi pi-undo" (click)="onClickRevert(colorId)"></i>
+        </div>
+      </div>
+
+      <div class="buttonContainer">
+        <div class="button" *ngFor="let letter of letters"
+             (click)="onClickLetter(colorId, letter)">
+          <span>{{letter}}</span>
+        </div>
+      </div>
+
+      <div class="cutWire" [ngSwitch]="cutWire[colorId]">
+      <span
+        *ngSwitchCase="0"></span>
+        <span *ngSwitchCase="1">
+        <img src="../../../assets/images/wires-vertical/cut.png" alt="Couper">
+      </span>
+        <span *ngSwitchCase="2">
+        <img src="../../../assets/images/wires-vertical/dont-cut.png" alt="Ne pas couper">
+      </span>
+      </div>
+    </div>
+  </div>
+
+  <button
+    pButton
+    type="button"
+    label="Réinitialiser"
+    class="ui-button-raised ui-button-warning"
+    (click)=resetList()
+  ></button>
+</div>

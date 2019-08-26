@@ -1,0 +1,51 @@
+#simonModuleContainer {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  table {
+    border-collapse: collapse;
+
+    tr {
+      th {
+        font-weight: 600;
+      }
+
+      td {
+        &:not(:last-child) {
+          border-right: 1px solid #9c9c9c;
+        }
+      }
+
+      td, th {
+        padding: 8px 16px;
+        min-width: 100px;
+
+        &:not(.nbError){
+          text-align: center;
+        }
+
+        &.nbError {
+          font-weight: bold;
+        }
+
+        &.red {
+          color: #ca0006;
+        }
+
+        &.blue {
+          color: #274eff;
+        }
+
+        &.green {
+          color: #02cc00;
+        }
+
+        &.yellow {
+          color: #ffba13;
+        }
+      }
+    }
+  }
+}

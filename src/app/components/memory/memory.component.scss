@@ -1,0 +1,148 @@
+#memoryModuleContainer {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  #memoryContainer{
+    display: flex;
+
+    #digitsContainer {
+      #display {
+        input{
+          width: 240px;
+          height: 150px;
+          background-color: #2f3135;
+          border:none;
+
+          text-align: center;
+          font-size: 100px;
+          color: #f2f2f9;
+
+          &.error {
+            color: #ca0006;
+          }
+        }
+      }
+
+      #labelContainer {
+        display: flex;
+
+        .label {
+          width: 57px;
+          height: 75px;
+          margin: 4px 0 0;
+
+          &:not(:last-child) {
+            margin-right: 4px;
+          }
+
+          input{
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 40px;
+            color: #424549;
+            border: 1px solid #424549;
+            background-color: #f2f2f9;
+
+            &.error {
+              color: #ca0006;
+              border-color: #ca0006;
+            }
+
+            &.toClick {
+              border: 2px solid #02cc00;
+            }
+          }
+        }
+      }
+
+      input[type=number]::-webkit-inner-spin-button,
+      input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+
+    #stepContainer {
+      margin-left: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 57px;
+      padding: 16px 8px;
+      background-color: #2f3135;
+
+      .stepLed {
+        height: 24px;
+        border: 2px solid #f2f2f9;
+        border-radius: 4px;
+
+        &.stepPassed {
+          background-image: radial-gradient(circle at center, #00ac01 22%, #008700 54%) !important;
+        }
+      }
+    }
+  }
+
+  #buttonContainer {
+    display: flex;
+
+    .button {
+      background-color: #2f3135;
+      color: #f2f2f9;
+      border-radius: 4px;
+      text-align: center;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 32px;
+      padding: 8px 16px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.disabled {
+        cursor: not-allowed;
+        background-color: #d7d7d7;
+      }
+
+      &:not(.disabled) {
+        &:hover {
+          background-color: #424549;
+        }
+      }
+
+      &.revert {
+        background-color: #f2f2f9;
+        color: #424549;
+        border: 2px solid #424549;
+
+        &.disabled {
+          color: #d7d7d7;
+          border-color: #d7d7d7;
+        }
+
+        &:not(.disabled) {
+          &:hover {
+            background-color: #dae4ed;
+          }
+        }
+      }
+
+      &.reset {
+        margin-right: 16px;
+
+        &> span {
+          margin-left: 8px;
+        }
+      }
+
+      &.next > span {
+        margin-right: 8px;
+      }
+    }
+  }
+}

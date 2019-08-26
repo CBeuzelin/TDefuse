@@ -102,9 +102,6 @@ export class WiresVerticalComponent implements OnInit {
           });
         }
       });
-
-      console.log(this.wires);
-      console.log('===========================');
     });
   }
 

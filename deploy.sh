@@ -1,4 +1,4 @@
 npm run build
-mkdir -p /var/www/html/tdefuse
-cp -r ./dist/front/* /var/www/html/tdefuse/
+mkdir -p /var/www/html/TDefuse
+cp -r ./dist/TDefuse/* /var/www/html/TDefuse/
 systemctl restart nginx.service

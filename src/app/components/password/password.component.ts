@@ -17,10 +17,9 @@ export class PasswordComponent implements OnInit {
     'where', 'which', 'world', 'would', 'write'
   ];
 
-  private lettersPropositions = [[], [], [], [], []];
-
-  private possiblePasswords = this.PASSWORDS;
-  private letters = [[], [], [], [], []];
+  lettersPropositions = [[], [], [], [], []];
+  possiblePasswords = this.PASSWORDS;
+  letters = [[], [], [], [], []];
 
   constructor() { }
 
@@ -36,7 +35,7 @@ export class PasswordComponent implements OnInit {
     });
   }
 
-  private selectLetter(rowNumber: number, letter: string) {
+  selectLetter(rowNumber: number, letter: string) {
 
     if (this.letters[rowNumber].includes(letter)) {
       this.letters[rowNumber].splice(this.letters[rowNumber].indexOf(letter), 1);
@@ -64,12 +63,12 @@ export class PasswordComponent implements OnInit {
     });
   }
 
-  private resetList() {
+  resetList() {
     this.possiblePasswords = this.PASSWORDS;
     this.letters = [[], [], [], [], []];
   }
 
-  private resetRow(rowNumber: number) {
+  resetRow(rowNumber: number) {
     this.letters[rowNumber] = [];
     this.filterPassword();
   }

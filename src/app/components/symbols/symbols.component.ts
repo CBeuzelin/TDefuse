@@ -16,17 +16,17 @@ export class SymbolsComponent implements OnInit {
     [16, 8, 24, 25, 20, 26, 27],
   ];
 
-  private symbols = Array(27).fill(0).map((x, i) => i);
-  private selectedSymbols: number[] = [];
-  private orderedSelectedSymbols: number[] = [];
-  private orderFound;
+  symbols = Array(27).fill(0).map((x, i) => i);
+  selectedSymbols: number[] = [];
+  orderedSelectedSymbols: number[] = [];
+  orderFound: boolean;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  private onClickSymbol(symbol: number) {
+  onClickSymbol(symbol: number) {
     if (this.selectedSymbols.includes(symbol)) {
       this.selectedSymbols.splice(this.selectedSymbols.indexOf(symbol), 1);
       this.orderedSelectedSymbols = [];
@@ -66,7 +66,7 @@ export class SymbolsComponent implements OnInit {
     });
   }
 
-  private resetList() {
+  resetList() {
     this.selectedSymbols = [];
     this.orderedSelectedSymbols = [];
   }

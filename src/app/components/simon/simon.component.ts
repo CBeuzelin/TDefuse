@@ -8,7 +8,7 @@ import { BombService } from '../../services/bomb/bomb.service';
 })
 export class SimonComponent implements OnInit {
 
-  private SIMON = [
+  SIMON = [
     [
       ['blue', 'red', 'yellow', 'green'],
       ['yellow', 'green', 'blue', 'red'],
@@ -21,7 +21,7 @@ export class SimonComponent implements OnInit {
     ]
   ];
 
-  private activeTable = 1;
+  activeTable = 1;
 
   constructor(private bombService: BombService) { }
 
@@ -35,7 +35,7 @@ export class SimonComponent implements OnInit {
     });
   }
 
-  private getColorName(color: string): string {
+  getColorName(color: string): string {
     switch (color) {
       case 'red':
         return 'Rouge';

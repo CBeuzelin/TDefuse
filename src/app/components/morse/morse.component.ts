@@ -55,11 +55,10 @@ export class MorseComponent implements OnInit {
     { word: 'vector', frequency: '3.595' },
   ];
 
-  private filteredFrequencies: { word: string, frequency: string }[] = [];
-
-  private currentMorseLetter: boolean[] = [];
-  private currentLetter = '';
-  private word = '';
+  filteredFrequencies: { word: string, frequency: string }[] = [];
+  currentMorseLetter: boolean[] = [];
+  currentLetter = '';
+  word = '';
 
   private static arraysEqual(a, b): boolean {
     if (a === b) { return true; }
@@ -77,17 +76,17 @@ export class MorseComponent implements OnInit {
   ngOnInit() {
   }
 
-  private onAddChar(isDash: boolean) {
+  onAddChar(isDash: boolean) {
     this.currentMorseLetter.push(isDash);
     this.checkLetter();
   }
 
-  private onRevertChar() {
+  onRevertChar() {
     this.currentMorseLetter.pop();
     this.checkLetter();
   }
 
-  private onClearLetter() {
+  onClearLetter() {
     this.currentMorseLetter = [];
     this.checkLetter();
   }
@@ -97,7 +96,7 @@ export class MorseComponent implements OnInit {
     this.currentLetter = !!foundLetter ? foundLetter.letter : 'notFound';
   }
 
-  private onSaveLetter() {
+  onSaveLetter() {
     if (!!this.currentLetter) {
       this.word += (this.currentLetter);
     }
@@ -111,7 +110,7 @@ export class MorseComponent implements OnInit {
     this.filteredFrequencies = this.FREQUENCIES.slice().filter(el => el.word.startsWith(this.word));
   }
 
-  private onPreviousLetter() {
+  onPreviousLetter() {
     this.word = this.word.slice(0, -1);
     this.filterFrequencies();
     this.onClearLetter();

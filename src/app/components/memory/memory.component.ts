@@ -14,11 +14,11 @@ interface MemoryStepInterface {
 export class MemoryComponent implements OnInit {
 
   private memorySteps: MemoryStepInterface[] = [];
-  private currentStep: MemoryStepInterface;
-  private currentStepNumber = 0;
-  private nbPositions: number[] = Array(4).fill(0).map((x, i) => i);
-  private nbSteps: number[] = Array(5).fill(0).map((x, i) => i).reverse();
-  private positionToClick: number;
+  currentStep: MemoryStepInterface;
+  currentStepNumber = 0;
+  nbPositions: number[] = Array(4).fill(0).map((x, i) => i);
+  nbSteps: number[] = Array(5).fill(0).map((x, i) => i).reverse();
+  positionToClick: number;
 
   constructor() { }
 
@@ -31,18 +31,18 @@ export class MemoryComponent implements OnInit {
     this.positionToClick = null;
   }
 
-  private isValueCorrect(value: number) {
+  isValueCorrect(value: number) {
     if (!!value) {
       return new RegExp('^[1-4]{1}$').test(value.toString());
     }
     return false;
   }
 
-  private isDuplicate(value: number) {
+  isDuplicate(value: number) {
     return this.currentStep.labels.filter(el => el === value).length > 1;
   }
 
-  private onInputChange() {
+  onInputChange() {
     let allValuesCorrect = true;
 
     if (!this.isValueCorrect(this.currentStep.display)) {
@@ -56,11 +56,11 @@ export class MemoryComponent implements OnInit {
     }
 
     if (allValuesCorrect) {
-      this.checkModule();
+      this.checkStep();
     }
   }
 
-  private checkModule() {
+  private checkStep() {
     switch (this.currentStepNumber) {
       case 0:
         switch (this.currentStep.display) {
@@ -143,15 +143,15 @@ export class MemoryComponent implements OnInit {
     }
   }
 
-  private firstStep() {
+  firstStep() {
     this.memorySteps = [];
     this.resetCurrentStep();
     this.currentStepNumber = 0;
   }
 
-  private nextStep() {
+  nextStep() {
     if (this.positionToClick !== null) {
-      this.currentStep.toClick = { position: this.positionToClick, label: this.currentStep.labels[this.positionToClick]};
+      this.currentStep.toClick = { position: this.positionToClick, label: this.currentStep.labels[this.positionToClick] };
       this.memorySteps.push(this.currentStep);
       this.resetCurrentStep();
       this.currentStepNumber += 1;

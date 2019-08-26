@@ -20,7 +20,7 @@ interface LedInterface {
   styleUrls: ['./wires-vertical.component.scss']
 })
 export class WiresVerticalComponent implements OnInit {
-  private wires: CutWireInterface[];
+  wires: CutWireInterface[];
 
   constructor(private bombService: BombService) { }
 
@@ -105,7 +105,7 @@ export class WiresVerticalComponent implements OnInit {
     });
   }
 
-  private isDefined(value: any) {
+  isDefined(value: any) {
     return typeof value !== 'undefined';
   }
 }

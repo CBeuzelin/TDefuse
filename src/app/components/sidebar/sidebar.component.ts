@@ -13,7 +13,7 @@ export class SidebarComponent implements OnInit {
   constructor(private bombService: BombService) {
   }
 
-  private onChangeParameter() {
+  onChangeParameter() {
     this.bombService.setBombParameters(this.bombParameters);
   }
 

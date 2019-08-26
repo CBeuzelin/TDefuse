@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MazeComponent implements OnInit {
 
-  private MAZES = [
+  MAZES = [
     {
       markers: [],
       grid: [
@@ -188,26 +188,23 @@ export class MazeComponent implements OnInit {
     },
   ];
 
-  private currentMaze = 0;
-
-  private enteredPoints = {
+  currentMaze = 0;
+  enteredPoints = {
     marker1: [],
     marker2: [],
     start: [],
     end: []
   };
-
-  private mazeValidated: boolean;
-
-  private path: number[] = [];
-  private pathGrid: any[];
+  mazeValidated: boolean;
+  path: number[] = [];
+  pathGrid: any[];
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  private arraysEqual(a, b): boolean {
+  arraysEqual(a, b): boolean {
     if (a === b) { return true; }
     if (a == null || b == null) { return false; }
     if (a.length !== b.length) { return false; }
@@ -218,11 +215,11 @@ export class MazeComponent implements OnInit {
     return true;
   }
 
-  private isMarker(point: number[]): boolean {
+  isMarker(point: number[]): boolean {
     return this.arraysEqual(this.enteredPoints.marker1, point) || this.arraysEqual(this.enteredPoints.marker2, point);
   }
 
-  private cyclePoint(point: number[]) {
+  cyclePoint(point: number[]) {
     if (point[0] % 2 === 0 && point[1] % 2 === 0 && this.mazeValidated) {
       switch (this.isEnteredPoint(point)) {
         case 'start':
@@ -270,7 +267,7 @@ export class MazeComponent implements OnInit {
     }
   }
 
-  private toggleMarker(point: number[]) {
+  toggleMarker(point: number[]) {
     if (point[0] % 2 === 0 && point[1] % 2 === 0 && !this.mazeValidated) {
       if (this.isMarker(point)) {
         if (this.arraysEqual(this.enteredPoints.marker1, point)) {
@@ -290,7 +287,7 @@ export class MazeComponent implements OnInit {
     }
   }
 
-  private validateMaze() {
+  validateMaze() {
     if (this.mazeValidated) {
       this.mazeValidated = undefined;
       this.enteredPoints.marker1 = [];
@@ -465,7 +462,7 @@ export class MazeComponent implements OnInit {
     return newLocation;
   }
 
-  private leadingZero(i: number): string {
+  leadingZero(i: number): string {
     if (i < 10) {
       return `0${i}`;
     }

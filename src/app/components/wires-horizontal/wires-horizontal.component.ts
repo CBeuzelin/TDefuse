@@ -8,11 +8,11 @@ import Bomb from '../../models/bomb';
   styleUrls: ['./wires-horizontal.component.scss']
 })
 export class WiresHorizontalComponent implements OnInit {
-  private nbWires = '3';
-  private wires: number[] = Array(parseInt(this.nbWires, 10)).fill(0).map((x, i) => i);
-  private wiresColor: string[]  = Array(parseInt(this.nbWires, 10)).fill('white');
-  private colorSet: string[] = ['white', 'blue', 'yellow', 'red', 'black'];
-  private wireToCut: number;
+  nbWires = '3';
+  wires: number[] = Array(parseInt(this.nbWires, 10)).fill(0).map((x, i) => i);
+  wiresColor: string[] = Array(parseInt(this.nbWires, 10)).fill('white');
+  colorSet: string[] = ['white', 'blue', 'yellow', 'red', 'black'];
+  wireToCut: number;
 
   constructor(private bombService: BombService) { }
 
@@ -20,14 +20,14 @@ export class WiresHorizontalComponent implements OnInit {
     this.getWireToCut();
   }
 
-  private onChangeNbWires() {
+  onChangeNbWires() {
     this.wires = Array(parseInt(this.nbWires, 10)).fill(0).map((x, i) => i);
     this.wiresColor = Array(parseInt(this.nbWires, 10)).fill('white');
 
     this.getWireToCut();
   }
 
-  private onChangeColor(wire: number, color: string) {
+  onChangeColor(wire: number, color: string) {
     this.wiresColor[wire] = color;
 
     this.getWireToCut();

@@ -1,90 +1,52 @@
 <div id="sidebarContainer">
-  <div>
-    <span id="title" routerLink="/">TDefuse</span>
-    <div>
+  <div id="title" routerLink="/">
+    TDefuse
+  </div>
+  <perfect-scrollbar>
+    <div id="bombParameters">
       <div id="categories">
         <h5>Numéro de série</h5>
         <div class="subcategory">
-          <p-toggleButton
-            onLabel="Pair"
-            offLabel="Impair"
-            [(ngModel)]="bombParameters.parity"
-            (onChange)=onChangeParameter()
-          ></p-toggleButton>
+          <p-toggleButton onLabel="Pair" offLabel="Impair" [(ngModel)]="bombParameters.parity"
+            (onChange)=onChangeParameter()></p-toggleButton>
 
-          <p-toggleButton
-            onLabel="Voyelle"
-            offLabel="Aucune voyelle"
-            [(ngModel)]="bombParameters.voyel"
-            (onChange)=onChangeParameter()
-          ></p-toggleButton>
+          <p-toggleButton onLabel="Voyelle" offLabel="Aucune voyelle" [(ngModel)]="bombParameters.voyel"
+            (onChange)=onChangeParameter()></p-toggleButton>
         </div>
 
         <h5>Piles</h5>
         <div class="subcategory">
           <div id="radioContainer">
-            <p-radioButton
-              name="nbBatteries"
-              value=0
-              [(ngModel)]="bombParameters.nbBatteries"
-              (onClick)=onChangeParameter()
-              label="0"
-            ></p-radioButton>
+            <p-radioButton name="nbBatteries" value=0 [(ngModel)]="bombParameters.nbBatteries"
+              (onClick)=onChangeParameter() label="0"></p-radioButton>
 
-            <p-radioButton
-              name="nbBatteries"
-              value=1
-              [(ngModel)]="bombParameters.nbBatteries"
-              (onClick)=onChangeParameter()
-              label="1"
-            ></p-radioButton>
+            <p-radioButton name="nbBatteries" value=1 [(ngModel)]="bombParameters.nbBatteries"
+              (onClick)=onChangeParameter() label="1"></p-radioButton>
 
-            <p-radioButton
-              name="nbBatteries"
-              value=2
-              [(ngModel)]="bombParameters.nbBatteries"
-              (onClick)=onChangeParameter()
-              label="2"
-            ></p-radioButton>
+            <p-radioButton name="nbBatteries" value=2 [(ngModel)]="bombParameters.nbBatteries"
+              (onClick)=onChangeParameter() label="2"></p-radioButton>
 
-            <p-radioButton
-              name="nbBatteries"
-              value=3
-              [(ngModel)]="bombParameters.nbBatteries"
-              (onClick)=onChangeParameter()
-              label="3 ou plus"
-            ></p-radioButton>
+            <p-radioButton name="nbBatteries" value=3 [(ngModel)]="bombParameters.nbBatteries"
+              (onClick)=onChangeParameter() label="3 ou plus"></p-radioButton>
           </div>
         </div>
 
         <h5>Ports & indicateurs</h5>
         <div class="subcategory">
-          <p-toggleButton
-            onLabel="Port parallèle"
-            offLabel="Aucun port parallèle"
-            [(ngModel)]="bombParameters.parallel"
-            (onChange)=onChangeParameter()
-          ></p-toggleButton>
+          <p-toggleButton onLabel="Port parallèle" offLabel="Aucun port parallèle" [(ngModel)]="bombParameters.parallel"
+            (onChange)=onChangeParameter()></p-toggleButton>
 
-          <p-toggleButton
-            onLabel="CAR allumé"
-            offLabel="CAR éteint"
-            [(ngModel)]="bombParameters.carIndicator"
-            (onChange)=onChangeParameter()
-          ></p-toggleButton>
+          <p-toggleButton onLabel="CAR allumé" offLabel="CAR éteint" [(ngModel)]="bombParameters.carIndicator"
+            (onChange)=onChangeParameter()></p-toggleButton>
 
-          <p-toggleButton
-            onLabel="FRK allumé"
-            offLabel="FRK éteint"
-            [(ngModel)]="bombParameters.frkIndicator"
-            (onChange)=onChangeParameter()
-          ></p-toggleButton>
+          <p-toggleButton onLabel="FRK allumé" offLabel="FRK éteint" [(ngModel)]="bombParameters.frkIndicator"
+            (onChange)=onChangeParameter()></p-toggleButton>
         </div>
       </div>
     </div>
+  </perfect-scrollbar>
 
-    <img src="./assets/images/game_logo.png" alt="Game logo">
-  </div>
+  <img src="./assets/images/game_logo.png" alt="Game logo">
 
   <div id="backToHome" routerLink="/">
     <i class="pi pi-home"></i>

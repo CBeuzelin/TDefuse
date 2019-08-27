@@ -35,7 +35,6 @@ export class MorseComponent implements OnInit {
     { letter: 'y', morse: [true, false, true, true] },
     { letter: 'z', morse: [true, true, false, false] },
   ];
-
   private FREQUENCIES = [
     { word: 'beats', frequency: '3.600' },
     { word: 'bistro', frequency: '3.552' },
@@ -115,5 +114,10 @@ export class MorseComponent implements OnInit {
     this.filterFrequencies();
     this.onClearLetter();
     this.currentLetter = '';
+  }
+
+  onResetWord() {
+    this.word = '';
+    this.onClearLetter();
   }
 }

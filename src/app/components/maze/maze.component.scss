@@ -17,15 +17,52 @@ $cellSize: 80px;
       border: 3px solid #424549;
       background-color: #ebedf0;
 
+      #columnNumContainer, #rowNumContainer {
+        position: absolute;
+        display: flex;
+
+        & .columnNum, & .rowNum {
+          flex: 1;
+          text-align: center;
+          font-size: 40px;
+          color: #424549;
+        }
+      }
+
+      #columnNumContainer {
+        width: 100%;
+        top: -54px;
+
+        .columnNum:not(:last-child) {
+          margin-right: 4px;
+        }
+      }
+
+      #rowNumContainer {
+        flex-direction: column;
+        height: 100%;
+        left: -40px;
+
+        .rowNum {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &:not(:last-child) {
+            margin-bottom: 4px;
+          }
+        }
+      }
+
       .column {
         display: inline-block;
         width: $cellSize;
         margin-bottom: -5px;
-  
+
         &.borderColumn {
           width: 3px;
         }
-        
+
         .row {
           height: $cellSize;
           width: 100%;
@@ -46,29 +83,29 @@ $cellSize: 80px;
         .column {
           .row {
             cursor: pointer;
-    
+
             background: url('../../../assets/images/maze/point.png') center no-repeat;
             background-size: contain;
-    
+
             &.closedBorder {
               background-color: #424549;
             }
-    
+
             .marker {
               background: url('../../../assets/images/maze/marker.png') center no-repeat;
               background-size: contain;
             }
-    
+
             .startPosition {
               background: url('../../../assets/images/maze/start-position.png') center no-repeat;
               background-size: contain;
             }
-    
+
             .endPosition {
               background: url('../../../assets/images/maze/end-position.png') center no-repeat;
               background-size: contain;
             }
-    
+
             .startPosition, .endPosition {
               position: relative;
               -webkit-animation: spin 15s linear infinite;
@@ -114,7 +151,7 @@ $cellSize: 80px;
               bottom: 35px;
             }
           }
-  
+
           &.downward {
             div {
               top: 35px;
@@ -135,7 +172,7 @@ $cellSize: 80px;
         }
       }
     }
-  
+
     .button {
       margin-top: 32px;
       background-color: #2f3135;
@@ -145,18 +182,18 @@ $cellSize: 80px;
       font-weight: bold;
       cursor: pointer;
       padding: 8px 16px;
-  
+
       &:hover {
         background-color: #424549;
       }
-  
+
       span {
         display: flex;
         align-items: center;
         justify-content: center;
       }
     }
-  
+
     #errorMessage {
       margin-top: 32px;
       min-height: 30px;

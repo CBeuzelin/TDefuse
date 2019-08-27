@@ -108,4 +108,17 @@ export class WiresVerticalComponent implements OnInit {
   isDefined(value: any) {
     return typeof value !== 'undefined';
   }
+
+  getColorName(color: string): string {
+    switch (color) {
+      case 'red':
+        return 'Rouge';
+      case 'blue':
+        return 'Bleu';
+      case 'blueRed':
+        return 'Bleu & Rouge';
+      case 'white':
+        return 'Blanc';
+    }
+  }
 }

@@ -1,6 +1,18 @@
 <div id="mazeModuleContainer">
   <div id="mazeControlsContainer">
     <div class="mazeContainer">
+      <div id="columnNumContainer">
+        <div class="columnNum" *ngFor="let column of MAZE_SIZE">
+          <span>{{column + 1}}</span>
+        </div>
+      </div>
+
+      <div id="rowNumContainer">
+        <div class="rowNum" *ngFor="let column of MAZE_SIZE">
+          <span>{{column + 1}}</span>
+        </div>
+      </div>
+
       <div id="mazePath" *ngIf="path.length">
         <div class="column" *ngFor="let column of pathGrid; let i = index" [ngClass]="{'borderColumn': i%2 === 1}">
           <div class="row" *ngFor="let row of pathGrid; let j = index" [ngClass]="{'borderRow': j%2 === 1}">
@@ -22,7 +34,7 @@
             [ngClass]="{'borderRow': j%2 === 1, 'closedBorder': (i%2 === 1 || j%2 === 1) && MAZES[currentMaze].grid[j][i] === 1}">
             <div [ngClass]="{'marker': isMarker([i, j])}" (click)="toggleMarker([i, j])">
               <div [ngClass]="{
-                    'startPosition': arraysEqual(enteredPoints.start, [i, j]), 
+                    'startPosition': arraysEqual(enteredPoints.start, [i, j]),
                     'endPosition': arraysEqual(enteredPoints.end, [i, j])
                   }" (click)="cyclePoint([i, j])">
               </div>

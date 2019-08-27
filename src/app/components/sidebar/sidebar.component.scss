@@ -2,58 +2,90 @@
   height: 100%;
   background-image: radial-gradient(circle at center,#2f3135 22%,#222326 54%) !important;
   padding: 16px 8px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  position: relative;
+  z-index: 2;
 
-  #title {
-    text-align: center;
-    font-size: 32px;
-    font-weight: bold;
+  & > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+    #title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+      cursor: pointer;
+      outline: none;
+    }
+
+    #categories {
+      margin: 0 15%;
+
+      h5 {
+        margin: 4px 0;
+      }
+
+      .subcategory {
+        margin-left: 8px;
+        padding: 16px 0 32px;
+        border-left: 1px solid #f2f2f940;
+
+        p-toggleButton {
+          display: flex;
+          justify-content: center;
+
+          &:not(:last-child){
+            margin-bottom: 16px;
+          }
+        }
+
+        p-toggleButton::ng-deep {
+          div {
+            min-width: 160px!important;
+          }
+        }
+
+        #radioContainer {
+          display: flex;
+          flex-direction: column;
+          margin-left: 20%;
+
+          p-radioButton {
+            margin: 4px 0;
+          }
+        }
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  #backToHome {
+    border: 3px solid #222326;
+    border-left: 0;
+    color: #222326;
+    position: absolute;
+    top: 16px;
+    right: -48px;
+    width: 48px;
+    height: 64px;
+    outline: 0;
+
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    outline: none;
-  }
+    z-index: 1;
 
-  #categories {
-    margin: 0 15%;
-
-    h5 {
-      margin: 4px 0;
+    &:hover {
+      border-color: #424549;
+      color: #424549;
     }
-
-    .subcategory {
-      margin-left: 8px;
-      padding: 16px 0 32px;
-      border-left: 1px solid #f2f2f940;
-
-      p-toggleButton {
-        display: flex;
-        justify-content: center;
-
-        &:not(:last-child){
-          margin-bottom: 16px;
-        }
-      }
-
-      p-toggleButton::ng-deep {
-        div {
-          min-width: 160px!important;
-        }
-      }
-
-      #radioContainer {
-        display: flex;
-        flex-direction: column;
-        margin-left: 20%;
-
-        p-radioButton {
-          margin: 4px 0;
-        }
-      }
-    }
-  }
-
-  img {
-    width: 100%;
   }
 }

@@ -28,9 +28,9 @@ export class SimonComponent implements OnInit {
   ngOnInit() {
     this.bombService.getBombParameters().subscribe(bombParameters => {
       if (bombParameters.voyel) {
-        this.activeTable = 1;
-      } else {
         this.activeTable = 0;
+      } else {
+        this.activeTable = 1;
       }
     });
   }

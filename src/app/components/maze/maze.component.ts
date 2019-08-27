@@ -187,6 +187,7 @@ export class MazeComponent implements OnInit {
       ]
     },
   ];
+  MAZE_SIZE: number[] = Array(6).fill(0).map((x, i) => i);
 
   currentMaze = 0;
   enteredPoints = {

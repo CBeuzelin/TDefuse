@@ -7,7 +7,7 @@
         *ngFor="let symbol of symbols"
       >
         <img
-          src="../../../assets/images/symbols/{{symbol+1}}.png"
+          src="./assets/images/symbols/{{symbol+1}}.png"
           alt="Symbole n°{{symbol+1}}"
           (click)=onClickSymbol(symbol+1)
         >
@@ -18,7 +18,7 @@
       <div>
         <span *ngIf="!orderFound && selectedSymbols.length === 4">Selection incorrecte</span>
         <div *ngFor="let symbol of orderedSelectedSymbols">
-          <img src="../../../assets/images/symbols/{{symbol}}.png" alt="Symbole n°{{symbol}}">
+          <img src="./assets/images/symbols/{{symbol}}.png" alt="Symbole n°{{symbol}}">
         </div>
       </div>
       <button

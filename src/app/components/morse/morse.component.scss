@@ -1,7 +1,19 @@
 #morseModule {
   padding: 15%;
 
+  #buttonsContainer {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > div {
+      display: flex;
+      margin-right: 16px;
+      margin-bottom: 16px;
+    }
+  }
+
   .button {
+    position: relative;
     background-color: #2f3135;
     color: #f2f2f9;
     border-radius: 4px;
@@ -17,6 +29,10 @@
 
     &:hover {
       background-color: #424549;
+
+      .tooltipText {
+        visibility: visible;
+      }
     }
 
     &:not(:last-child){
@@ -36,6 +52,34 @@
     &#saveLetter {
       width: auto;
       padding: 8px 16px;
+    }
+
+    .tooltipText {
+      visibility: hidden;
+      background-color: #424549;
+      color: #f2f2f9;
+      font-size: 14px;
+      text-align: center;
+      padding: 8px 16px;
+      border-radius: 6px;
+
+      position: absolute;
+      z-index: 1;
+      max-width: 200px;
+      top: 38px;
+      left: 50%;
+      margin-left: -60px;
+    }
+
+    .tooltipText::after {
+      content: " ";
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent #424549 transparent;
     }
   }
 

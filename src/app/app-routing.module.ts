@@ -12,6 +12,7 @@ import { PasswordComponent } from './components/password/password.component';
 import { SimonComponent } from './components/simon/simon.component';
 import { MazeComponent } from './components/maze/maze.component';
 import { MorseComponent } from './components/morse/morse.component';
+import { KnobComponent } from './components/knob/knob.component';
 
 const routes: Routes = [
   {path: '', component: MenuComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'wires-crossed', component: WiresCrossedComponent},
   {path: 'maze', component: MazeComponent},
   {path: 'password', component: PasswordComponent},
+  {path: 'knob', component: KnobComponent},
 ];
 
 @NgModule({

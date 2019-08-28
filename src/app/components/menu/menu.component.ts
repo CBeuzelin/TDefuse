@@ -52,6 +52,10 @@ export class MenuComponent implements OnInit {
       name: 'Mot de Passe',
       route: 'password',
     },
+    {
+      name: 'Molette',
+      route: 'knob',
+    },
   ];
 
   constructor() { }

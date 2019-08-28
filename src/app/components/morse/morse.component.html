@@ -1,27 +1,37 @@
 <div id="morseModule">
   <div id="buttonsContainer">
-    <div id="previousLetter" class="button revert" (click)=onPreviousLetter()>
-      <i class="pi pi-angle-double-left"></i>
+    <div>
+      <div id="previousLetter" class="button revert" (click)=onPreviousLetter()>
+        <i class="pi pi-angle-double-left"></i>
+        <span class="tooltipText">Lettre précédente</span>
+      </div>
+
+      <div id="undoLetter" class="button revert" (click)=onRevertChar()>
+        <i class="pi pi-angle-left"></i>
+        <span class="tooltipText">Caractère Morse précédent</span>
+      </div>
     </div>
 
-    <div id="undoLetter" class="button revert" (click)=onRevertChar()>
-      <i class="pi pi-angle-left"></i>
-    </div>
+    <div>
+      <div id="dot" class="button" (click)="onAddChar(false)">
+        <i class="pi pi-circle-on"></i>
+      </div>
 
-    <div id="dot" class="button" (click)="onAddChar(false)">
-      <i class="pi pi-circle-on"></i>
-    </div>
-
-    <div id="dash" class="button" (click)="onAddChar(true)">
+      <div id="dash" class="button" (click)="onAddChar(true)">
       <i class="pi pi-minus"></i>
+      </div>
     </div>
 
-    <div id="clearLetter" class="button revert" (click)=onClearLetter()>
-      <i class="pi pi-undo"></i>
-    </div>
+    <div>
+      <div id="clearLetter" class="button revert" (click)=onClearLetter()>
+        <i class="pi pi-undo"></i>
+        <span class="tooltipText">Réinitialiser la lettre</span>
+      </div>
 
-    <div id="resetWord" class="button revert" (click)=onResetWord()>
-      <i class="pi pi-times"></i>
+      <div id="resetWord" class="button revert" (click)=onResetWord()>
+        <i class="pi pi-times"></i>
+        <span class="tooltipText">Réinitialiser le mot entier</span>
+      </div>
     </div>
   </div>
 
@@ -34,7 +44,7 @@
 
     </div>
     <div id="letterResult">
-      <div [ngSwitch]="currentLetter">
+      <div [ngSwitch]="currentLetter" *ngIf=currentMorseLetter.length>
         <span *ngSwitchCase="''"></span>
         <span *ngSwitchCase="'notFound'">Aucune lettre ne correspond à ce code.</span>
         <span *ngSwitchDefault>Lettre correspondante:

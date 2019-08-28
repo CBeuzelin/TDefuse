@@ -74,17 +74,52 @@
   </div>
 
   <div id="textContainer">
-    <h3>Synthèse:</h3>
-    <span>Couper le fil si:</span>
-    <ul *ngFor="let wire of wires">
-      <li *ngIf="isDefined(wire.cut); else wireCutUndefined">
-        Le fil est {{getColorName(wire.color)}}
-      </li>
-      <ng-template #wireCutUndefined>
-        <li *ngIf="isDefined(wire.ledOn.cut) && wire.ledOn.cut">
-          Le fil est {{getColorName(wire.color)}} et la LED est allumée
-        </li>
-      </ng-template>
-    </ul>
+    <div>
+      <h3>Couper le fil si:</h3>
+      <ul *ngFor="let wire of wires" class="{{wire.color}}List">
+        <div *ngIf="isDefined(wire.cut); else wireCutUndefined">
+          <li *ngIf=wire.cut>
+              Le fil est <span class="bold">{{getColorName(wire.color)}}</span>
+          </li>
+        </div>
+        <ng-template #wireCutUndefined>
+          <li *ngIf="isDefined(wire.ledOn.cut) && wire.ledOn.cut; else ledOnCutUndefined">
+            Le fil est <span class="bold">{{getColorName(wire.color)}}</span> et
+            la LED est <span class="bold">allumée</span>
+          </li>
+          <ng-template #ledOnCutUndefined>
+            <li *ngIf="wire.ledOn.starOn">
+              Le fil est <span class="bold">{{getColorName(wire.color)}}</span>,
+              la LED est <span class="bold">allumée</span> et
+              l'étoile est <span class="bold">présente</span>
+            </li>
+
+            <li *ngIf="wire.ledOn.starOff">
+              Le fil est <span class="bold">{{getColorName(wire.color)}}</span>,
+              la LED est <span class="bold">allumée</span> et
+              l'étoile est <span class="bold">absente</span>
+            </li>
+          </ng-template>
+
+          <li *ngIf="isDefined(wire.ledOff.cut) && wire.ledOff.cut; else ledOffCutUndefined">
+            Le fil est <span class="bold">{{getColorName(wire.color)}}</span> et
+            la LED est <span class="bold">éteinte</span>
+          </li>
+          <ng-template #ledOffCutUndefined>
+            <li *ngIf="wire.ledOff.starOn">
+              Le fil est <span class="bold">{{getColorName(wire.color)}}</span>,
+              la LED est <span class="bold">éteinte</span> et
+              l'étoile est <span class="bold">présente</span>
+            </li>
+
+            <li *ngIf="wire.ledOff.starOff">
+              Le fil est <span class="bold">{{getColorName(wire.color)}}</span>,
+              la LED est <span class="bold">éteinte</span> et
+              l'étoile est <span class="bold">absente</span>
+            </li>
+          </ng-template>
+        </ng-template>
+      </ul>
+    </div>
   </div>
 </div>

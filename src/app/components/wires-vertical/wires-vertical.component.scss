@@ -1,5 +1,5 @@
 #wireVerticalContainer {
-  height: 100%;
+  height: 100vh;
   display: flex;
   justify-content: space-around;
   padding: 64px 15%;
@@ -68,5 +68,45 @@
   }
 
   #textContainer {
+    max-width: 300px;
+    color: #f2f2f9;
+
+
+    & > div {
+      padding: 16px 32px;
+      background-color: #2f3135;
+      border-radius: 4px;
+
+      h3 {
+        margin: 0 0 16px 0;
+      }
+
+      .bold {
+        font-weight: bold;
+      }
+
+      ul {
+        &.blueList {
+          border-left: 2px solid #274eff;
+        }
+
+        &.redList {
+          border-left: 2px solid #ca0006;
+        }
+
+        &.blueRedList {
+          border-left: 2px solid #a617ff;
+        }
+
+        &.whiteList {
+          border-left: 2px solid white;
+        }
+
+
+        li {
+          margin-bottom: 8px;
+        }
+      }
+    }
   }
 }

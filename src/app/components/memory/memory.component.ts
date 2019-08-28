@@ -24,6 +24,13 @@ export class MemoryComponent implements OnInit {
 
   ngOnInit() {
     this.resetCurrentStep();
+    document.getElementById('input0').focus();
+
+    document.addEventListener('keyup', (event) => {
+      if (event.keyCode === 13) {
+        this.nextStep();
+      }
+    });
   }
 
   private resetCurrentStep() {
@@ -33,7 +40,7 @@ export class MemoryComponent implements OnInit {
 
   isValueCorrect(value: number) {
     if (!!value) {
-      return new RegExp('^[1-4]{1}$').test(value.toString());
+      return new RegExp('^[1-4]$').test(value.toString());
     }
     return false;
   }
@@ -42,7 +49,25 @@ export class MemoryComponent implements OnInit {
     return this.currentStep.labels.filter(el => el === value).length > 1;
   }
 
-  onInputChange() {
+  onInputChange(event: any, position?: number) {
+    const pattern = new RegExp('^[1-4]$');
+
+    if (!pattern.test(event.target.value)) {
+      event.target.value = event.target.value.replace(/[^1-4]/g, '')[0];
+      if (position >= 0) {
+        this.currentStep.labels[position] = event.target.value === '' ? null : event.target.value;
+      } else {
+        this.currentStep.display = event.target.value === '' ? null : event.target.value;
+      }
+    }
+
+    if (this.isValueCorrect(event.target.value)) {
+      const nextEmptyInput = this.getNextEmptyInput();
+      if (nextEmptyInput >= 0) {
+        document.getElementById(`input${nextEmptyInput}`).focus();
+      }
+    }
+
     let allValuesCorrect = true;
 
     if (!this.isValueCorrect(this.currentStep.display)) {
@@ -57,7 +82,25 @@ export class MemoryComponent implements OnInit {
 
     if (allValuesCorrect) {
       this.checkStep();
+    } else {
+      this.positionToClick = null;
     }
+  }
+
+  getNextEmptyInput(): number {
+    if (!this.currentStep.display) {
+      return 0;
+    } else if (!this.currentStep.labels[0]) {
+      return 1;
+    } else if (!this.currentStep.labels[1]) {
+      return 2;
+    } else if (!this.currentStep.labels[2]) {
+      return 3;
+    } else if (!this.currentStep.labels[3]) {
+      return 4;
+    }
+
+    return -1;
   }
 
   private checkStep() {
@@ -155,6 +198,7 @@ export class MemoryComponent implements OnInit {
       this.memorySteps.push(this.currentStep);
       this.resetCurrentStep();
       this.currentStepNumber += 1;
+      document.getElementById('input0').focus();
     }
   }
 }

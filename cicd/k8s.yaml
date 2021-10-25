@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tdefuse-frontend
+  labels:
+    app: tdefuse
+    tier: frontend
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      app: tdefuse
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: tdefuse
+        tier: frontend
+    spec:
+      containers:
+        - name: tdefuse-frontend
+          image: cbeuzelin/tdefuse:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: tdefuse-frontend
+  labels:
+    app: tdefuse
+    tier: frontend
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+  selector:
+    app: tdefuse
+    tier: frontend
+
+
+---
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: tdefuse-ingress
+annotations:
+#  cert-manager.io/cluster-issuer: letsencrypt-tdefuse
+  kubernetes.io/ingress.class: nginx
+  kubernetes.io/tls-acme: 'true'
+  nginx.ingress.kubernetes.io/configuration-snippet: ''
+  nginx.ingress.kubernetes.io/limit-connections: '200'
+  nginx.ingress.kubernetes.io/limit-rps: '20'
+  nginx.ingress.kubernetes.io/proxy-read-timeout: '3600'
+  nginx.ingress.kubernetes.io/proxy-send-timeout: '3600'
+  nginx.ingress.kubernetes.io/proxy-body-size: 8m
+spec:
+#  tls:
+#    - hosts:
+#        - tdefuse.cbeuzelin.fr
+#      secretName: tdefuse-cert-tls
+  rules:
+    - host: tdefuse.cbeuzelin.fr
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: tdefuse-frontend
+              servicePort: http

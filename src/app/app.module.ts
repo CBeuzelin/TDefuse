@@ -19,7 +19,7 @@ import { PasswordComponent } from './components/password/password.component';
 import { CalculatorComponent } from './components/calculator/calculator.component';
 import { SymbolsComponent } from './components/symbols/symbols.component';
 import { MorseComponent } from './components/morse/morse.component';
-import { KnobComponent } from './components/knob/knob.component';
+// import { KnobComponent } from './components/knob/knob.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,7 @@ import { KnobComponent } from './components/knob/knob.component';
     WiresCrossedComponent,
     MazeComponent,
     PasswordComponent,
-    KnobComponent,
+    // KnobComponent,
   ],
   imports: [
     BrowserModule,
